@@ -1,7 +1,10 @@
 <head>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script type="module" src="/src/stars-rating.js"></script>
+  <script>
+    function logRate(obj) {console.log('rate', obj);}
+  </script>
 </head>
 <body>
-  <stars-rating rate="3.5"></stars-rating>
+  <stars-rating rate="5" id="12345" afterClick="logRate"></stars-rating>
 </body>

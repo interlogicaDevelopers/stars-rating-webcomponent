@@ -6,20 +6,26 @@ class StarsRating extends LitElement {
     super();
     this._stars = ['star_border', 'star_border', 'star_border', 'star_border', 'star_border'];
     this.rate = 0;
+    this.id = null;
+    this.afterClick = null;
   }
 
   static get properties() {
     return {
+      id: { type: String },
       rate: { type: Number },
-      readOnly: {type: Boolean,value: false}
+      readOnly: { type: Boolean, value: false },
+      afterClick: { type: Function, value: null}
     };
   }
 
   _updateRate(e) {
     const id = parseInt(e.currentTarget.dataset.index);
     this.rate = id + 1;
-    console.log(id, this.rate);
     this._updateStars();
+    if (this.afterClick && typeof window[this.afterClick] === 'function') {
+      window[this.afterClick]({ id: this.id, rate: this.rate });
+    }
   }
 
   _updateStars() {
@@ -41,7 +47,10 @@ class StarsRating extends LitElement {
 
     return html`
       ${MaterialIconsStyles}
-      <div>
+      <div
+        data-rate="${this.rate}"
+        class="stars-rating"
+      >
         ${this._stars.map((star, index) => html`
           <i
             style="cursor:pointer; color:red;"
