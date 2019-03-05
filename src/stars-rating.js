@@ -5,15 +5,12 @@ class StarsRating extends LitElement {
   constructor() {
     super();
     this._stars = Array(5).fill('star_border');
-    this.rate = 0;
-    this.id = null;
-    this.afterClick = null;
   }
 
   static get properties() {
     return {
-      id: { type: String },
-      rate: { type: Number },
+      id: { type: String, value: null },
+      rate: { type: Number, value: 0 },
       readOnly: { type: Boolean, value: false },
       afterClick: { type: Function, value: null}
     };
@@ -29,10 +26,12 @@ class StarsRating extends LitElement {
   }
 
   _doClick(e) {
-    const index = parseInt(e.currentTarget.dataset.index);
-    this._updateRate(index);
-    this._updateStars();
-    this._handleCallback();
+    if (!this.readOnly) {
+      const index = parseInt(e.currentTarget.dataset.index);
+      this._updateRate(index);
+      this._updateStars();
+      this._handleCallback();
+    }
   }
 
   _updateRate(index) {
