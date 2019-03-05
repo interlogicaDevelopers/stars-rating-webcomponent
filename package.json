@@ -4,7 +4,7 @@
   "description": "stars rating webcomponent based on litElement",
   "author": "marco.gazzuolo@interlogica.it",
   "license": "MIT",
-  "main": "stars-rating.js",
+  "main": "src/stars-rating.js",
   "dependencies": {
     "@webcomponents/webcomponentsjs": "^2.2.7",
     "lit-element": "^2.0.1"
@@ -19,5 +19,10 @@
     "watch": "browser-sync start --proxy localhost:8081 --files 'index.html' '*.js'",
     "build": "polymer build",
     "servebuild": "polymer serve build/mybuild"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/interlogicaDevelopers/stars-rating-webcomponent.git"
+  },
+  "homepage": "https://github.com/interlogicaDevelopers/stars-rating-webcomponent"
 }
