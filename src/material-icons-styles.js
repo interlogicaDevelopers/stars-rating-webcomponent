@@ -24,5 +24,10 @@ export const MaterialIconsStyles = html`
       -moz-font-feature-settings: 'liga';
       -moz-osx-font-smoothing: grayscale;
     }
+
+    .star-rating {
+      cursor: pointer;
+      color: red;
+    }
   </style>
 `;

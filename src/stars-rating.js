@@ -67,8 +67,7 @@ class StarsRating extends LitElement {
       >
         ${this._stars.map((star, index) => html`
           <i
-            style="cursor:pointer; color:red;"
-            class="material-icons"
+            class="material-icons star-rating"
             data-index="${index}"
             @click="${this._doClick}"
           >
