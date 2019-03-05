@@ -2,7 +2,7 @@
   "npm": true,
   "moduleResolution": "node",
   "entrypoint": "index.html",
-  "shell": "src/star-ratings.js",
+  "shell": "src/stars-rating.js",
   "extraDependencies": [
     "node_modules/@webcomponents/webcomponentsjs/**"
   ],

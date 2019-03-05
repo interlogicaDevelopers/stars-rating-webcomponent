@@ -18,7 +18,7 @@
     "start": "polymer serve | npm run watch",
     "watch": "browser-sync start --proxy localhost:8081 --files 'index.html' '*.js'",
     "build": "polymer build",
-    "servebuild": "polymer serve build/mybuild"
+    "servebuild": "polymer serve build/star-ratings"
   },
   "repository": {
     "type": "git",
