@@ -28,15 +28,19 @@ class StarsRating extends LitElement {
     }
   }
 
-  _updateRate(e) {
-    const id = parseInt(e.currentTarget.dataset.index);
-    if (this._stars[id] === 'star') {
-      this.rate = id;
-    } else {
-      this.rate = id + 1;
-    }
+  _doClick(e) {
+    const index = parseInt(e.currentTarget.dataset.index);
+    this._updateRate(index);
     this._updateStars();
     this._handleCallback();
+  }
+
+  _updateRate(index) {
+    if (this._stars[index] === 'star') {
+      this.rate = index;
+    } else {
+      this.rate = index + 1;
+    }
   }
 
   _updateStars() {
@@ -67,7 +71,7 @@ class StarsRating extends LitElement {
             style="cursor:pointer; color:red;"
             class="material-icons"
             data-index="${index}"
-            @click="${this._updateRate}"
+            @click="${this._doClick}"
           >
             ${star}
           </i>
