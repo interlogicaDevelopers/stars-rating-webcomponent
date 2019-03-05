@@ -4,7 +4,7 @@ import { MaterialIconsStyles } from './material-icons-styles';
 class StarsRating extends LitElement {
   constructor() {
     super();
-    this._stars = ['star_border', 'star_border', 'star_border', 'star_border', 'star_border'];
+    this._stars = Array(5).fill('star_border');
     this.rate = 0;
     this.id = null;
     this.afterClick = null;
@@ -19,13 +19,24 @@ class StarsRating extends LitElement {
     };
   }
 
+  _handleCallback() {
+    if (this.afterClick && typeof window[this.afterClick] === 'function') {
+      window[this.afterClick]({
+        id: this.id,
+        rate: this.rate
+      });
+    }
+  }
+
   _updateRate(e) {
     const id = parseInt(e.currentTarget.dataset.index);
-    this.rate = id + 1;
-    this._updateStars();
-    if (this.afterClick && typeof window[this.afterClick] === 'function') {
-      window[this.afterClick]({ id: this.id, rate: this.rate });
+    if (this._stars[id] === 'star') {
+      this.rate = id;
+    } else {
+      this.rate = id + 1;
     }
+    this._updateStars();
+    this._handleCallback();
   }
 
   _updateStars() {
