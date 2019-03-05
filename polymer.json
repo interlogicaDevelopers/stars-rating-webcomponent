@@ -1,0 +1,16 @@
+{
+  "npm": true,
+  "moduleResolution": "node",
+  "entrypoint": "index.html",
+  "shell": "src/star-ratings.js",
+  "extraDependencies": [
+    "node_modules/@webcomponents/webcomponentsjs/**"
+  ],
+  "builds": [{
+    "name": "star-ratings",
+    "bundle": true,
+    "js": {
+      "minify": true
+    }
+  }]
+}

@@ -1,0 +1,60 @@
+import { LitElement, html } from 'lit-element';
+import { MaterialIconsStyles } from './material-icons-styles';
+
+class StarsRating extends LitElement {
+  constructor() {
+    super();
+    this._stars = ['star_border', 'star_border', 'star_border', 'star_border', 'star_border'];
+    this.rate = 0;
+  }
+
+  static get properties() {
+    return {
+      rate: { type: Number },
+      readOnly: {type: Boolean,value: false}
+    };
+  }
+
+  _updateRate(e) {
+    const id = parseInt(e.currentTarget.dataset.index);
+    this.rate = id + 1;
+    console.log(id, this.rate);
+    this._updateStars();
+  }
+
+  _updateStars() {
+    const intPart = Math.floor(this.rate);
+    const decimalPart = this.rate % 1;
+    for (let i = 0; i < 5; i++) {
+      this._stars[i] = 'star_border';
+      if (i < intPart) {
+        this._stars[i] = 'star';
+      }
+    }
+    if (decimalPart >= 0.5) {
+      this._stars[intPart] = 'star_half';
+    }
+  }
+  
+  render() {
+    this._updateStars();
+
+    return html`
+      ${MaterialIconsStyles}
+      <div>
+        ${this._stars.map((star, index) => html`
+          <i
+            style="cursor:pointer; color:red;"
+            class="material-icons"
+            data-index="${index}"
+            @click="${this._updateRate}"
+          >
+            ${star}
+          </i>
+        `)}
+      </div>
+    `;
+  }
+}
+
+customElements.define('stars-rating', StarsRating);

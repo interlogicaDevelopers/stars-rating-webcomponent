@@ -1,0 +1,23 @@
+{
+  "name": "stars-rating-webcomponent",
+  "version": "1.0.0",
+  "description": "stars rating webcomponent based on litElement",
+  "author": "marco.gazzuolo@interlogica.it",
+  "license": "MIT",
+  "main": "stars-rating.js",
+  "dependencies": {
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "lit-element": "^2.0.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  },
+  "scripts": {
+    "lint": "eslint . --ext js,html --ignore-path .gitignore",
+    "test": "npm run lint && polymer test",
+    "start": "polymer serve | npm run watch",
+    "watch": "browser-sync start --proxy localhost:8081 --files 'index.html' '*.js'",
+    "build": "polymer build",
+    "servebuild": "polymer serve build/mybuild"
+  }
+}
