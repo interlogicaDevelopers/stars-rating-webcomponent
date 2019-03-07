@@ -1,13 +1,20 @@
-<head>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script type="module" src="/src/stars-rating.js"></script>
-  <script>
-    function logRate(obj) {console.log('rate', obj);}
-  </script>
-</head>
-<body>
-  <span>Try out</span>
-  <stars-rating rate="0" id="12345" afterClick="logRate"></stars-rating>
-  <span>Read only</span>
-  <stars-rating rate="2" id="12346" readOnly="true"></stars-rating>
-</body>
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Stars Rating WebComponent</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script type="module" src="/src/stars-rating.js"></script>
+    <script>
+      function logRate(obj) {
+        console.log('rate', obj);
+      }
+    </script>
+  </head>
+  <body>
+    <span>Try out</span>
+    <stars-rating rate="0" id="12345" afterClick="logRate"></stars-rating>
+    <span>Read only</span>
+    <stars-rating rate="2.5" id="12346" readOnly="true"></stars-rating>
+  </body>
+</html>
