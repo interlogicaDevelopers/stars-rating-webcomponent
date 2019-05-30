@@ -6,11 +6,11 @@
   "license": "MIT",
   "main": "src/stars-rating.js",
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.7",
-    "lit-element": "^2.0.1"
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "lit-element": "^2.1.0"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.3"
+    "browser-sync": "^2.26.5"
   },
   "scripts": {
     "lint": "eslint . --ext js,html --ignore-path .gitignore",
